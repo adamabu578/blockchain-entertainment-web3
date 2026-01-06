@@ -7,7 +7,7 @@ import PastEditions from "@/components/past-editions"
 import EntertainHeader from "@/components/entertain-header"
 import FAQSection from "@/components/faq"
 import ContactSection from "@/components/contact-section"
-import { Footer } from "react-day-picker"
+import Footer from "@/components/footer"
 
 export default function Home() {
   return (
@@ -21,7 +21,7 @@ export default function Home() {
       <EntertainHeader/>
       <FAQSection/>
       <ContactSection/>
-      <Footer />
+      <Footer/>
     </main>
   )
 }

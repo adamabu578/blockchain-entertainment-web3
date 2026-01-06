@@ -104,7 +104,7 @@ export default function PastEditions() {
         </div>
 
         {/* Footer Logos */}
-        <div className="mt-20 pt-12 border-t border-purple-500/20">
+        {/* <div className="mt-20 pt-12 border-t border-purple-500/20">
           <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6">
             {[1, 2, 3, 4, 5].map((i) => (
               <div key={i} className="flex items-center gap-3">
@@ -122,7 +122,7 @@ export default function PastEditions() {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   )

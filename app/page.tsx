@@ -4,6 +4,10 @@ import Sponsors from "@/components/sponsors"
 import EntertainmentMatters from "@/components/entertainment-matters"
 import ReachMetrics from "@/components/reach-metrics"
 import PastEditions from "@/components/past-editions"
+import EntertainHeader from "@/components/entertain-header"
+import FAQSection from "@/components/faq"
+import ContactSection from "@/components/contact-section"
+import { Footer } from "react-day-picker"
 
 export default function Home() {
   return (
@@ -14,6 +18,10 @@ export default function Home() {
       <EntertainmentMatters />
       <ReachMetrics />
       <PastEditions />
+      <EntertainHeader/>
+      <FAQSection/>
+      <ContactSection/>
+      <Footer />
     </main>
   )
 }

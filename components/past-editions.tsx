@@ -103,26 +103,7 @@ export default function PastEditions() {
           ))}
         </div>
 
-        {/* Footer Logos */}
-        {/* <div className="mt-20 pt-12 border-t border-purple-500/20">
-          <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6">
-            {[1, 2, 3, 4, 5].map((i) => (
-              <div key={i} className="flex items-center gap-3">
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 bg-white rounded-sm flex items-center justify-center">
-                    <span className="text-black text-xs font-bold">B&T</span>
-                  </div>
-                  <div className="text-xs text-gray-400">
-                    <div className="font-semibold text-white">EDUCATE.</div>
-                    <div className="font-semibold text-white">ENTERTAIN.</div>
-                    <div className="text-gray-500">2026</div>
-                  </div>
-                </div>
-                {i < 5 && <span className="text-gray-600">•</span>}
-              </div>
-            ))}
-          </div>
-        </div> */}
+  
       </div>
     </section>
   )

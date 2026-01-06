@@ -1,61 +1,80 @@
-import Image from "next/image";
+"use client"
+
+import Image from "next/image"
+import { Card, CardContent } from "@/components/ui/card"
 
 export default function EntertainmentMatters() {
   return (
-    <section className="py-20 px-6 bg-gradient-to-br from-slate-950 via-purple-950 to-slate-900">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-          {/* Left Side - Purple Card */}
-          <div className="bg-purple-300 rounded-3xl p-10 lg:p-12 w-full lg:w-[560px] h-[331px] flex flex-col justify-center">
-            <h2 className="text-4xl lg:text-5xl font-black text-black mb-4 lg:mb-8 leading-tight">
-              Entertainment
-              <br />
-              Matters
-              <br />
-              In <span className="text-white">WEB3</span>
-            </h2>
+    <section className="py-20 px-4 sm:px-6 bg-gradient-to-br from-slate-950 via-purple-950 to-slate-900 overflow-x-hidden">
+      <div className=" mx-auto">
+        
+        {/* Grid with smaller gap */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 items-start">
 
-            <p className="text-black text-base leading-relaxed mb-2 lg:mb-6">
-              Entertainment is the emotional vehicle that carries the message of WEB3 adoption and B3T has mastered this
-              blend like no other event.
-            </p>
+          {/* Left Side – Portrait Purple Card */}
+          <div className="flex justify-center"> {/* pull closer on large screens */}
+            <Card className="bg-[#CC9CFF] border-none rounded-3xl w-full sm:w-[360px] h-[480px] w-[
+360px] h-[480px]">
+              <CardContent className="p-6 h-full flex flex-col justify-center">
+                <h2 className="text-4xl font-black text-black leading-tight mb-5">
+                  Entertainment
+                  <br />
+                  Matters
+                  <br />
+                  In <span className="text-white">WEB3</span>
+                </h2>
 
-            <p className="text-black text-base leading-relaxed">
-              By integrating performances, comedy, influencers, and gamified interaction
-            </p>
+                <p className="text-black text-base leading-relaxed mb-3">
+                  Entertainment is the emotional vehicle that carries the message
+                  of WEB3 adoption and B3T has mastered this blend like no other event.
+                </p>
+
+                <p className="text-black text-base leading-relaxed">
+                  By integrating performances, comedy, influencers, and gamified interaction
+                </p>
+              </CardContent>
+            </Card>
           </div>
 
-          {/* Right Side - Stacked Cards */}
-          <div className="flex flex-col gap-6 w-full">
+          {/* Right Side – Stacked Cards */}
+          <div className="flex flex-col gap-4 w-full">
+            
             {/* White Description Card */}
-            <div className="bg-white rounded-2xl p-8 shadow-xl">
-              <p className="text-black text-base leading-relaxed mb-4">
-                AprilFull combines blockchain education with dynamic entertainment, to deliver an unparalleled
-                experience for attendees.
-              </p>
+            <Card className="bg-[#F3E7FF] border-none rounded-2xl shadow-xl w-[560px] h-[340px]">
+              <CardContent className="p-6">
+                <p className="text-black text-base leading-relaxed mb-3">
+                  AprilFull combines blockchain education with dynamic entertainment,
+                  to deliver an unparalleled experience for attendees.
+                </p>
 
-              <p className="text-black text-base leading-relaxed mb-4">
-                By integrating education with engagement, Aprilfull ensures participants remain captivated, while
-                gaining invaluable insights about Web3.
-              </p>
+                <p className="text-black text-base leading-relaxed mb-3">
+                  By integrating education with engagement, AprilFull ensures
+                  participants remain captivated, while gaining invaluable insights
+                  about Web3.
+                </p>
 
-              <p className="text-black text-base leading-relaxed">
-                B3T continues to redefine how blockchain knowledge is shared on the continent.
-              </p>
-            </div>
+                <p className="text-black text-base leading-relaxed">
+                  B3T continues to redefine how blockchain knowledge is shared
+                  on the continent.
+                </p>
+              </CardContent>
+            </Card>
 
-            {/* Event Image */}
-            <div className="relative w-full h-64 rounded-2xl overflow-hidden shadow-xl">
-              <Image
-                src="/assets/entertainment-img.jpg"
-                alt="AprilFull event attendees"
-                fill
-                className="object-cover"
-              />
-            </div>
+            {/* Image Card */}
+            <Card className="w-[560px] h-[320px] relative overflow-hidden rounded-2xl shadow-xl border-none">
+              <div className="">
+                <Image
+                  src="/assets/entertain-img.svg"
+                  alt="AprilFull event attendees"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </Card>
+
           </div>
         </div>
       </div>
     </section>
-  );
+  )
 }

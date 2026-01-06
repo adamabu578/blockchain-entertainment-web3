@@ -44,9 +44,9 @@ export default function Hero() {
 
       {/* Hero Image */}
       <div className="mt-10">
-        <div className="relative mx-auto max-w-7xl h-[220px] sm:h-[320px] md:h-[420px] lg:h-[476px] overflow-hidden rounded-xl md:rounded-2xl">
+        <div className="relative  h-[220px] sm:h-[320px] md:h-[420px] lg:h-[476px] overflow-hidden rounded-xl md:rounded-2xl">
           <Image
-            src="/assets/hero.png"
+            src="/assets/hero.svg"
             alt="BAT Event Hero"
             fill
             priority

@@ -4,7 +4,7 @@ import Image from "next/image"
 
 export default function Hero() {
   return (
-    <section className="pt-24 md:pt-32 pb-16 md:pb-20 px-4 sm:px-6">
+    <section className="pt-24 md:pt-32 pb-16 md:pb-20 px-4 sm:px-6 overflow-x-hidden">
       
       {/* Text Content */}
       <div className="max-w-5xl mx-auto text-center">
@@ -29,7 +29,7 @@ export default function Hero() {
               alt="Brand Logo"
               width={140}
               height={40}
-              className="object-contain sm:mt-2"
+              className="object-contain"
             />
           </div>
         </div>
@@ -43,14 +43,14 @@ export default function Hero() {
       </div>
 
       {/* Hero Image */}
-      <div className="relative w-full mt-10 px-2 sm:px-4">
-        <div className="relative w-full h-[220px] sm:h-[320px] md:h-[420px] lg:h-[476px]">
+      <div className="mt-10">
+        <div className="relative mx-auto max-w-7xl h-[220px] sm:h-[320px] md:h-[420px] lg:h-[476px] overflow-hidden rounded-xl md:rounded-2xl">
           <Image
             src="/assets/hero.png"
             alt="BAT Event Hero"
             fill
             priority
-            className="object-cover rounded-xl md:rounded-2xl"
+            className="object-cover"
           />
         </div>
       </div>

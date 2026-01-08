@@ -10,50 +10,52 @@ export default function ReachMetrics() {
   ]
 
   return (
-    <section className="py-20 px-4 sm:px-6 bg-gradient-to-br from-slate-950 via-purple-950 to-slate-900 overflow-x-hidden">
-      <div className="max-w-7xl mx-auto">
+    <section className="relative py-20 px-4 sm:px-6 bg-[#110A12] overflow-x-hidden">
 
-        {/* Grid: Image Left, Text Right */}
-        <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-0 lg:gap-8 items-start">
+      {/* Top Purple Glow */}
+      <div className="pointer-events-none absolute top-0 left-1/2 h-[280px] w-[600px] -translate-x-1/2 rounded-full bg-[#964BE6]/50 blur-[160px]" />
 
-          {/* Left - L-shaped Event Image */}
-          <div className="relative w-full lg:w-[600px] h-80 sm:h-96 lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
-            <Image
-              src="/assets/subtract.svg"
-              alt="aprilful-img"
-              fill
-              className="object-cover"
-            />
-          </div>
+      <div className="relative max-w-7xl mx-auto">
 
-          {/* Right - Purple Background for Text & Metrics */}
-          <div className="bg-purple-950 lg:rounded-2xl p-6 sm:p-8 lg:p-12 flex flex-col justify-center gap-8">
-            
+        {/* L-Shape Image Container */}
+        <div className="relative mx-auto h-[520px] w-full lg:w-[900px] overflow-hidden rounded-2xl shadow-2xl">
+
+          {/* Background Image */}
+          <Image
+            src="/assets/subtract.svg"
+            alt="aprilful-img"
+            fill
+            className="object-cover"
+          />
+
+          {/* Overlay Content (aligned to top) */}
+          <div className="absolute inset-y-0 right-0 flex w-full flex-col items-start gap-4 p-6 sm:p-8 lg:w-[55%] lg:p-10 -translate-y-4">
+
             {/* Title & Subtitle */}
             <div>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white mb-4">
+              <h2 className="mb-3 text-3xl font-black text-white sm:text-4xl lg:text-5xl">
                 Our Reach So Far
               </h2>
-              <p className="text-white/80 text-base sm:text-lg lg:text-xl leading-relaxed">
+              <p className="text-base text-white/80 sm:text-lg leading-relaxed">
                 Here is how far we have gone on the mission to Educate & Entertain
               </p>
             </div>
 
-            {/* Metrics Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {/* Metrics Grid (smaller cards) */}
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
               {metrics.map((metric, index) => (
                 <div
                   key={index}
-                  className="bg-purple-400 rounded-2xl p-4 lg:p-6 text-center shadow-lg hover:shadow-xl hover:bg-purple-500 transition-all duration-300"
+                  className="rounded-2xl bg-[#CC9CFF] px-4 py-3 text-center shadow-lg transition hover:shadow-xl"
                 >
-                  <div className="text-2xl lg:text-4xl font-black text-white mb-1">
+                  <div className="mb-1 text-xl font-black text-white lg:text-2xl">
                     {metric.number}
                   </div>
-                  <div className="text-black font-bold text-sm lg:text-base mb-1">
+                  <div className="mb-1 text-sm font-bold text-black lg:text-sm">
                     {metric.label}
                   </div>
                   {metric.sublabel && (
-                    <div className="text-black text-xs lg:text-sm">
+                    <div className="text-xs text-black lg:text-xs">
                       {metric.sublabel}
                     </div>
                   )}
@@ -67,4 +69,3 @@ export default function ReachMetrics() {
     </section>
   )
 }
-

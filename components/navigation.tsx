@@ -1,24 +1,37 @@
 'use client';
 
 import Image from 'next/image';
-import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { Menu, X, Moon, Sun } from 'lucide-react';
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [theme, setTheme] = useState<'light' | 'dark'>('dark');
+
+  // Apply theme to <html>
+  useEffect(() => {
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
+  };
 
   const navItems = [
-    { label: 'Home', href: '#', active: true },
+    { label: 'Home', href: '#' },
     { label: 'Team', href: '#' },
     { label: 'Gallery', href: '#' },
     { label: 'Contact', href: '#' },
   ];
 
   return (
-    <nav className="fixed top-4 left-1/2 z-50 w-full max-w-7xl -translate-x-1/2 px-4 sm:px-6 lg:px-8">
-      
+    <nav className="fixed top-4 left-0 right-0 z-50 px-4 sm:px-6">
       {/* Navbar */}
-      <div className="flex items-center justify-between bg-white/5 backdrop-blur-md rounded-full px-4 sm:px-6 py-3 border border-white/10 shadow-lg">
+      <div className="mx-auto flex max-w-7xl items-center rounded-full border border-white/10 bg-[#D29FFF14] px-6 py-3 backdrop-blur-md">
         
         {/* Logo */}
         <div className="flex items-center gap-2">
@@ -27,31 +40,35 @@ export default function Navigation() {
             alt="AprilFull Logo"
             width={36}
             height={36}
-            className="object-contain"
             priority
           />
         </div>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-6 lg:gap-8">
+        <div className="ml-auto hidden items-center gap-6 lg:gap-8 md:flex">
           {navItems.map((item) => (
             <a
               key={item.label}
               href={item.href}
-              className={`text-sm font-medium transition-all ${
-                item.active
-                  ? 'text-purple-400 border-b-2 border-purple-400 pb-1'
-                  : 'text-white/80 hover:text-white'
-              }`}
+              className="text-sm font-medium text-white/80 transition hover:text-white"
             >
               {item.label}
             </a>
           ))}
+
+          {/* Theme Toggle */}
+          <button
+            onClick={toggleTheme}
+            className="rounded-full bg-white/10 p-2 text-white transition hover:bg-white/20"
+            aria-label="Toggle theme"
+          >
+            {theme === 'dark' ? <Moon size={18} /> : <Sun size={18} />}
+          </button>
         </div>
 
-        {/* Mobile Toggle */}
+        {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-white/80 hover:text-white p-2"
+          className="ml-auto rounded-full p-2 text-white/80 transition hover:text-white md:hidden"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Toggle menu"
         >
@@ -61,18 +78,27 @@ export default function Navigation() {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden mt-3 bg-gray-900/95 backdrop-blur-md rounded-2xl border border-white/10 shadow-xl overflow-hidden">
-          <div className="p-5 space-y-2">
+        <div className="mx-auto mt-3 max-w-7xl overflow-hidden rounded-2xl border border-white/10 bg-gray-900/95 shadow-xl backdrop-blur-md md:hidden">
+          
+          {/* Theme Toggle */}
+          <div className="flex justify-end px-4 pt-4">
+            <button
+              onClick={toggleTheme}
+              className="rounded-full bg-white/10 p-2 text-white transition hover:bg-white/20"
+              aria-label="Toggle theme"
+            >
+              {theme === 'dark' ? <Moon size={18} /> : <Sun size={18} />}
+            </button>
+          </div>
+
+          {/* Links */}
+          <div className="space-y-2 p-5">
             {navItems.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
                 onClick={() => setIsMenuOpen(false)}
-                className={`block py-3 px-4 rounded-lg text-sm transition ${
-                  item.active
-                    ? 'bg-purple-500/20 text-purple-400 border-l-4 border-purple-400'
-                    : 'text-white/80 hover:bg-white/5 hover:text-white'
-                }`}
+                className="block rounded-lg px-4 py-3 text-sm text-white/80 transition hover:bg-white/5 hover:text-white"
               >
                 {item.label}
               </a>

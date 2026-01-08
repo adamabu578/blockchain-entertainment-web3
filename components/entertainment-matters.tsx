@@ -5,16 +5,15 @@ import { Card, CardContent } from "@/components/ui/card"
 
 export default function EntertainmentMatters() {
   return (
-    <section className="py-20 px-4 sm:px-6 bg-gradient-to-br from-slate-950 via-purple-950 to-slate-900 overflow-x-hidden">
-      <div className=" mx-auto">
+    <section className="py-20 px-4 sm:px-6 bg-[#110A12] overflow-x-hidden">
+      <div className="mx-auto">
         
-        {/* Grid with smaller gap */}
+        {/* Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 items-start">
 
           {/* Left Side – Portrait Purple Card */}
-          <div className="flex justify-center"> {/* pull closer on large screens */}
-            <Card className="bg-[#CC9CFF] border-none rounded-3xl w-full sm:w-[360px] h-[480px] w-[
-360px] h-[480px]">
+          <div className="flex justify-center">
+            <Card className="bg-[#CC9CFF] border-none rounded-3xl w-full sm:w-[360px] h-[480px]">
               <CardContent className="p-6 h-full flex flex-col justify-center">
                 <h2 className="text-4xl font-black text-black leading-tight mb-5">
                   Entertainment
@@ -60,17 +59,21 @@ export default function EntertainmentMatters() {
               </CardContent>
             </Card>
 
-            {/* Image Card */}
-            <Card className="w-[560px] h-[320px] relative overflow-hidden rounded-2xl shadow-xl border-none">
-              <div className="">
+            {/* Image Card with Purple Glow (down-right) */}
+            <div className="relative w-[560px] h-[320px]">
+              {/* Glow */}
+              <div className="absolute -bottom-6 -right-6 h-full w-full rounded-2xl bg-[#964BE6]/50 blur-[120px]" />
+
+              {/* Image Card */}
+              <Card className="relative h-full w-full overflow-hidden rounded-2xl border-none shadow-xl">
                 <Image
                   src="/assets/entertain-img.svg"
                   alt="AprilFull event attendees"
                   fill
                   className="object-cover"
                 />
-              </div>
-            </Card>
+              </Card>
+            </div>
 
           </div>
         </div>

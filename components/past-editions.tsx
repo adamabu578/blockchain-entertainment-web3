@@ -2,6 +2,7 @@
 
 import Image from "next/image"
 import { ArrowRight } from "lucide-react"
+import { Button } from "@/components/ui/button"
 
 interface Edition {
   id: number
@@ -38,63 +39,96 @@ const editions: Edition[] = [
     location: "Asaba, Delta State, Nigeria",
     image: "/assets/past-img2.png",
     description: [
-      "Attendance grew to over 500 participants - the highest recorded turnout for any Web3 event in the state - featuring reputable guest speakers, expert panelists, and participation from top Web3 influencers, all supported by industry-leading brand sponsors.",
+      "Attendance grew to over 500 participants — the highest recorded turnout for any Web3 event in the state — featuring reputable guest speakers, expert panelists, and participation from top Web3 influencers, all supported by industry-leading brand sponsors.",
     ],
   },
 ]
 
 export default function PastEditions() {
   return (
-    <section className="py-20 px-4 md:px-8 lg:px-16 xl:px-24 bg-gradient-to-br from-slate-950 via-purple-950 to-slate-900">
-      <div className="max-w-7xl mx-auto">
-        {/* Section Heading */}
-        <h2 className="text-4xl md:text-5xl font-bold text-white text-center mb-16">
-          Past Editions
-        </h2>
+    <section className="relative py-24 px-4 md:px-8 lg:px-16 xl:px-24 bg-[#140000] overflow-hidden">
+      <div className="max-w-7xl mx-auto relative">
 
-        {/* Editions List */}
-        <div className="space-y-20">
+        {/* HEADER WITH CONTROLLED GLOW */}
+        <div className="relative text-center mb-24 inline-block w-full">
+          <h2 className="relative inline-block text-4xl md:text-5xl font-bold text-white z-10">
+            Past Editions
+          </h2>
+
+          {/* Glow only above header */}
+          <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-[320px] h-[120px] bg-[#964BE6]/60 blur-[120px] pointer-events-none" />
+        </div>
+
+        {/* EDITIONS */}
+        <div className="space-y-28">
           {editions.map((edition) => (
             <div
               key={edition.id}
-              className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center"
+              className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center"
             >
-              {/* Image Section - LEFT */}
-              <div className="w-full lg:w-1/2">
-                <div className="relative h-64 md:h-80 rounded-2xl overflow-hidden group shadow-2xl">
+              {/* IMAGE */}
+              <div className="w-full lg:w-1/2 relative">
+                <div className="relative h-64 md:h-80 rounded-2xl overflow-hidden shadow-2xl">
+
+                  {/* IMAGE GLOW — ONLY FOR 1ST EDITION */}
+                  {edition.id === 1 && (
+                    <div className="absolute -top-10 -left-10 w-[220px] h-[220px] bg-[#964BE6]/50 blur-[140px] z-0 pointer-events-none" />
+                  )}
+
                   <Image
                     src={edition.image}
                     alt={edition.title}
                     fill
-                    className="object-cover"
+                    className="object-cover relative z-10"
                   />
 
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors duration-300 flex items-center justify-center">
-                    {/* <button className="flex items-center gap-2 px-6 py-3 bg-white/20 hover:bg-white/30 text-white font-semibold rounded-full backdrop-blur-md transition-all duration-300">
+                  <div className="absolute inset-0 bg-black/30 z-10" />
+
+                  {/* BUTTON */}
+                  {/* <div className="absolute bottom-6 left-6 z-20">
+                    <Button
+                      variant="outline"
+                      className="
+                        h-[42px]
+                        px-6
+                        rounded-full
+                        border border-white/70
+                        bg-transparent
+                        text-sm
+                        font-medium
+                        text-white
+                        hover:bg-transparent
+                        hover:border-white
+                        group
+                      "
+                    >
                       View Gallery
-                      <ArrowRight size={18} />
-                    </button> */}
-                  </div>
+                      <ArrowRight
+                        size={16}
+                        className="ml-2 transition-transform group-hover:translate-x-1"
+                      />
+                    </Button>
+                  </div> */}
                 </div>
               </div>
 
-              {/* Text Section - RIGHT */}
-              <div className="w-full lg:w-1/2 space-y-4">
+              {/* TEXT */}
+              <div className="w-full lg:w-1/2 space-y-5">
                 <h3 className="text-3xl md:text-4xl font-bold text-white">
                   {edition.title}
                 </h3>
+
                 <p className="text-lg text-gray-300">
                   {edition.location}
                 </p>
 
                 <div className="space-y-4">
-                  {edition.description.map((paragraph, idx) => (
+                  {edition.description.map((text, index) => (
                     <p
-                      key={idx}
+                      key={index}
                       className="text-gray-300 leading-relaxed text-justify"
                     >
-                      {paragraph}
+                      {text}
                     </p>
                   ))}
                 </div>
@@ -103,7 +137,6 @@ export default function PastEditions() {
           ))}
         </div>
 
-  
       </div>
     </section>
   )

@@ -1,21 +1,29 @@
-// module.exports = {
+
+// export default {
 //   theme: {
 //     extend: {
 //       fontFamily: {
-//         sans: ["var(--font-polysans)", "ui-sans-serif", "system-ui"],
+//         sans: ["var(--font-polysans)", "sans-serif"],
 //       },
 //     },
 //   },
-//   plugins: [],
-// }
+// };
 
 
+/** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: 'class', // ✅ enables light & dark mode
+  content: [
+    './app/**/*.{js,ts,jsx,tsx}',
+    './pages/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}',
+  ],
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-polysans)", "sans-serif"],
+        sans: ['var(--font-polysans)', 'sans-serif'],
       },
     },
   },
-};
+  plugins: [],
+}

@@ -1,7 +1,7 @@
-import type { Metadata } from "next";
-import { Analytics } from "@vercel/analytics/next";
-import { polySans } from "@/font"; // adjust path
-import "./globals.css";
+import type { Metadata } from "next"
+import { Analytics } from "@vercel/analytics/next"
+import { polySans } from "@/font"
+import "./globals.css"
 
 export const metadata: Metadata = {
   title: "Blockchain & Entertainment Event",
@@ -24,21 +24,25 @@ export const metadata: Metadata = {
     ],
     apple: "/apple-icon.png",
   },
-};
+}
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="overflow-x-hidden">
+    <html
+      lang="en"
+      className="overflow-x-hidden"
+      suppressHydrationWarning
+    >
       <body
-        className={`${polySans.className} antialiased overflow-x-hidden bg-black`}
+        className={`${polySans.className} antialiased overflow-x-hidden bg-background text-foreground transition-colors duration-300`}
       >
         {children}
         <Analytics />
       </body>
     </html>
-  );
+  )
 }
